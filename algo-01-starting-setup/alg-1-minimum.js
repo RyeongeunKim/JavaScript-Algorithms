@@ -1,3 +1,5 @@
+// BAST CASE: [5] => O(1)
+// WORST CASE: [3, 1] => O[n]
 function getMin(numbers) {
   // [3, 1, 2]
   if (!numbers.length) {
@@ -19,6 +21,9 @@ function getMin(numbers) {
 
 // T = n => Linear Time Complexity => O(n)
 
+// BEST CASE: [1, 2, 3] => O(n^2)
+// WORST CASE: [3, 2, 1] => O(n^2)
+// AVERAGE CASE: [?, ?, ?] => O(n^2)
 function getMin2(numbers) {
   if (!numbers.length) {
     throw new Error("Should not be an empty array!");
