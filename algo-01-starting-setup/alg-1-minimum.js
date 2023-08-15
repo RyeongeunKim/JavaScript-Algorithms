@@ -13,8 +13,32 @@ function getMin(numbers) {
   return currentMinimum;
 }
 
-const testNumbers = [3, 1, 2];
+function getMin2(numbers) {
+  if (!numbers.length) {
+    throw new Error("Should not be an empty array!");
+  }
 
-const min = getMin(testNumbers);
+  for (let i = 0; i < numbers.length; i++) {
+    let outerElement = numbers[i];
+    for (let j = i + 1; j < numbers.length; j++) {
+      let innerElement = numbers[j];
+
+      if (outerElement > innerElement) {
+        // swap
+        numbers[i] = innerElement;
+        numbers[j] = outerElement; // [1, 3]
+
+        outerElement = numbers[i]; // => 1
+        innerElement = numbers[j]; // => 3
+      }
+    }
+  }
+
+  return numbers[0];
+}
+
+const testNumbers = [2, 1, -5, 10, 10, -10];
+
+const min = getMin2(testNumbers);
 
 console.log(min);
