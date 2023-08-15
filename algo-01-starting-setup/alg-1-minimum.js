@@ -1,17 +1,23 @@
 function getMin(numbers) {
+  // [3, 1, 2]
   if (!numbers.length) {
+    // 1 execution
     throw new Error("Should not be an empty array!");
   }
-  let currentMinimum = numbers[0];
+  let currentMinimum = numbers[0]; // 1 execution
 
-  for (let i = 0; i < numbers.length; i++) {
+  for (let i = 1; i < numbers.length; i++) {
+    // 1 execution
     if (numbers[i] < currentMinimum) {
-      currentMinimum = numbers[i];
+      // 2 executions
+      currentMinimum = numbers[i]; // 1 execution
     }
   }
 
-  return currentMinimum;
+  return currentMinimum; // 1 execution
 }
+
+// T = n => Linear Time Complexity => O(n)
 
 function getMin2(numbers) {
   if (!numbers.length) {
@@ -37,8 +43,8 @@ function getMin2(numbers) {
   return numbers[0];
 }
 
-const testNumbers = [2, 1, -5, 10, 10, -10];
+const testNumbers = [3, 1, 2];
 
-const min = getMin2(testNumbers);
+const min = getMin(testNumbers);
 
 console.log(min);
