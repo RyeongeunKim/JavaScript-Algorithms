@@ -47,7 +47,7 @@ function same1(arr1, arr2){
 
 same1([1,2,3,2], [9,1,4,4])
 
-// [권장] 예시2 => O(n)
+// [권장] 예시2 : 객체사용 => O(n)
 
 function same2(arr1, arr2){
     if(arr1.length !== arr2.length){
