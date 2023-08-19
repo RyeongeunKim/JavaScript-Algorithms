@@ -3,7 +3,12 @@
 //              소문자로 이루어져 있다고 가정한다.
 
 function validAnagram(str1, str2) {
+  if (str1 === str2) return true;
 
+  for (const alphabet of str1) {
+    console.log(alphabet);
+    console.log(str2);
+  }
 }
 
-validAnagram('', '');
+console.log(validAnagram("anagram", "nagaram"));
