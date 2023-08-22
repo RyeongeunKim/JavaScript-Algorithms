@@ -5,19 +5,23 @@
 function validAnagram(str1, str2) {
   if (str1.length !== str2.length) return false;
 
-  const map1 = new Map();
-  const map2 = new Map();
+  const charCount = new Map();
 
-  for (const key of str1) map1.set(key, (map1.get(key) || 0) + 1);
-  for (const key of str2) map2.set(key, (map2.get(key) || 0) + 1);
+  for (const char of str1) {
+    charCount.set(char, (charCount.get(char) || 0) + 1);
+  }
 
-  if (map1.size !== map2.size) return false;
+  for (const char of str2) {
+    const getCount = charCount.get(char);
 
-  for (const [key, value] of map1) {
-    if (map2.get(key) !== value) return false;
+    if (!getCount) {
+      return false;
+    }
+
+    charCount.set(char, getCount - 1);
   }
 
   return true;
 }
 
-console.log(validAnagram("anagram", "anagram"));
+console.log(validAnagram("anagram", "naagram"));
